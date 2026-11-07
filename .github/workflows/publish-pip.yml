@@ -8,9 +8,9 @@ jobs:
     if: startsWith(github.event.ref, 'refs/tags')
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@0717577d45739eb3c851188b29f50ed6c0b2194e # v2
       - name: Set up Python 3.8
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@0f07f7f756721ebd886c2462646a35f78a8bc4de # v1
         with:
           python-version: 3.8
       - name: Upgrade pip
@@ -28,6 +28,6 @@ jobs:
       - name: Build for distribution
         run: python setup.py sdist bdist_wheel
       - name: Publish distribution to PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@c1b34028248d0c9f7d90fe29fef2122e2276ff6f # master
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
